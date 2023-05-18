@@ -12,6 +12,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -22,7 +28,7 @@ public class normalmode extends AppCompatActivity {
 
     private int i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16;
     private String textWord,textClue;
-    private TextView guessbox;
+    private TextView guessbox,highscore;
     private ArrayList<Character> characters = new ArrayList<>();
     private int index,lives=3;
     private Button reset,check;
@@ -310,6 +316,7 @@ public class normalmode extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(normalmode.this,MainActivity.class);
+                intent.putExtra("BestScore",score);
                 startActivity(intent);
             }
         });
@@ -401,7 +408,10 @@ public class normalmode extends AppCompatActivity {
 
     }
 
-}
+
+    }
+
+
 
 
 
